@@ -1,9 +1,9 @@
-import { Directive, ElementRef, HostBinding, Input, Renderer2, SimpleChanges } from '@angular/core';
+import { Directive, ElementRef, HostBinding, Input, OnChanges, OnInit, Renderer2, SimpleChanges } from '@angular/core';
 
 @Directive({
   selector: '[appBackgroundControl]'
 })
-export class BackgroundControlDirective {
+export class BackgroundControlDirective implements OnInit{
 
 
   @Input() stato:string

@@ -8,9 +8,9 @@ import { Account } from './shared/account.model';
 })
 export class AppComponent {
 
-  accounts: Account[] = []
+  //accounts: Account[] = []
 
-  onSaveAccount(account:Account){
-    this.accounts.push(account)
-  }
+  // onSaveAccount(account:Account){
+  //   this.accounts.push(account)
+  // }
 }
