@@ -1,4 +1,5 @@
 export class Account {
+  id: number;
   nome: string;
   tipo: string;
   stato: string;
@@ -6,11 +7,11 @@ export class Account {
   inactive: boolean;
   hidden: boolean;
 
-  constructor(nome: string, tipo: string, stato: string) {
+  constructor(id:number,nome: string, tipo: string, stato: string) {
+    this.id = id;
     this.nome = nome;
     this.tipo = tipo;
     this.stato = stato;
-    console.log(this.active)
     if (this.stato === 'Active') {
       this.setActive()
 

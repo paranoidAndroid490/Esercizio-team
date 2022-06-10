@@ -9,13 +9,26 @@ import { AccountService } from '../shared/account.service';
 })
 export class DisplayAccountsComponent implements OnInit {
 
-  // @Input() accounts
-  accounts: Account[]
+   @Input() titolo
+   @Input() accounts
+  // accounts: Account[] = []
   constructor(private accountService:AccountService) {
-this.accounts = accountService.accounts
+
    }
 
   ngOnInit(): void {
+    this.accountService.accountsListActive.subscribe((accounts:Account[])=>{
+      console.log(accounts)
+    })
+    // this.accountService.accountsListInactive.subscribe((accounts:Account[])=>{
+    //   console.log(accounts)
+    // })
+    // this.accountService.accountsListHidden.subscribe((accounts:Account[])=>{
+    //   console.log(accounts)
+    // })
+
+
+
   }
 
 }

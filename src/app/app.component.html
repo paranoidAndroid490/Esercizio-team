@@ -4,8 +4,10 @@
     <div class="col-12">
       <app-new-account></app-new-account>
     </div>
-    <div class="col-12">
-      <app-display-accounts ></app-display-accounts>
+    <div class="row">
+      <app-display-accounts class="col-4"  [titolo]="'Active'" [accounts]="active" ></app-display-accounts>
+      <app-display-accounts class="col-4" [titolo]="'Inactive'" [accounts]="inactive" ></app-display-accounts>
+      <app-display-accounts class="col-4" [titolo]="'Hidden'" [accounts]="hidden"></app-display-accounts>
     </div>
 
   </div>

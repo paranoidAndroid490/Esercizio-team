@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Account } from '../shared/account.model';
+import { AccountService } from '../shared/account.service';
 
 @Component({
   selector: 'app-account',
@@ -9,22 +11,27 @@ export class AccountComponent implements OnInit {
 
   @Input() account
 
-  constructor() { }
+  constructor(private accountService:AccountService) { }
 
   ngOnInit(): void {
   }
 
   onChangeStato(id:string){
-    if(id === 'active'){
+    let oldStato = this.account.stato
+    if(id === 'Active'){
       this.account.stato = 'Active'
       this.account.setActive()
-    } else if (id === 'inactive'){
+    } else if (id === 'Inactive'){
       this.account.stato = 'Inactive'
       this.account.setInactive()
     } else {
       this.account.stato = 'Hidden'
       this.account.setHidden()
     }
+
+    this.accountService.moveAccount(this.account,oldStato)
+
   }
+
 
 }
