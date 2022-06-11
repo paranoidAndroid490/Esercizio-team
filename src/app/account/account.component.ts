@@ -10,18 +10,23 @@ import { AccountService } from '../shared/account.service';
 export class AccountComponent implements OnInit {
 
   @Input() account
+  @Input() index
 
   constructor(private accountService:AccountService) { }
 
   ngOnInit(): void {
+
+    this.account.id = this.index
+
+
   }
 
-  onChangeStato(id:string){
+  onChangeStato(stato:string){
     let oldStato = this.account.stato
-    if(id === 'Active'){
+    if(stato === 'Active'){
       this.account.stato = 'Active'
       this.account.setActive()
-    } else if (id === 'Inactive'){
+    } else if (stato === 'Inactive'){
       this.account.stato = 'Inactive'
       this.account.setInactive()
     } else {
@@ -31,6 +36,10 @@ export class AccountComponent implements OnInit {
 
     this.accountService.moveAccount(this.account,oldStato)
 
+  }
+
+  onRemoveAccount(){
+    this.accountService.removeAccount(this.account,this.account.stato,true)
   }
 
 

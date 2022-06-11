@@ -17,7 +17,7 @@ export class NewAccountComponent implements OnInit {
   }
 
   onCreateAccount(nome:HTMLInputElement,tipo:HTMLInputElement,stato:HTMLSelectElement){
-    let account = new Account(Math.random(),nome.value,tipo.value,stato.value)
+    let account = new Account(nome.value,tipo.value,stato.value)
     //this.saveAccount.emit(account)
     this.accountService.addAccount(account)
   }

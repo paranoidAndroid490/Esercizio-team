@@ -1,4 +1,4 @@
 
   <h2>{{titolo}}</h2>
-  <app-account *ngFor="let account of accounts" [account]="account"></app-account>
+  <app-account *ngFor="let account of accounts;let i = index" [account]="account" [index]="i"></app-account>
 

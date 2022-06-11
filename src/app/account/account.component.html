@@ -1,11 +1,42 @@
 <div appBackgroundControl [stato]="account.stato">
-  <div class="card-header ">{{account.nome}}</div>
-  <p>{{account.tipo}}</p>
-  <p>{{account.stato}}</p>
+  <div class="card-header">
+    <div class="d-flex justify-content-end">
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="onRemoveAccount()"
+      ></button>
+    </div>
+    <h3>{{ account.nome }}</h3>
+  </div>
+  <p>{{ account.tipo }}</p>
+  <p>{{ account.stato }}</p>
 
   <div class="container">
-  <button [disabled]="account.active" class="btn btn-primary m-2 mb-3 " type="button" (click)="onChangeStato('Active')">Active</button>
-  <button [disabled]="account.inactive" class="btn btn-primary m-2 mb-3" type="button" (click)="onChangeStato('Inactive')">Inactive</button>
-  <button [disabled]="account.hidden" class="btn btn-primary m-2 mb-3" type="button" (click)="onChangeStato('Hidden')">Hidden</button>
-</div>
+    <button
+      [disabled]="account.active"
+      class="btn btn-primary m-2 mb-3"
+      type="button"
+      (click)="onChangeStato('Active')"
+    >
+      Active
+    </button>
+    <button
+      [disabled]="account.inactive"
+      class="btn btn-primary m-2 mb-3"
+      type="button"
+      (click)="onChangeStato('Inactive')"
+    >
+      Inactive
+    </button>
+    <button
+      [disabled]="account.hidden"
+      class="btn btn-primary m-2 mb-3"
+      type="button"
+      (click)="onChangeStato('Hidden')"
+    >
+      Hidden
+    </button>
+  </div>
 </div>

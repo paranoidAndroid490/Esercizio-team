@@ -1,14 +1,14 @@
 export class Account {
-  id: number;
+
   nome: string;
   tipo: string;
   stato: string;
   active: boolean;
   inactive: boolean;
   hidden: boolean;
+  id?: number;
 
-  constructor(id:number,nome: string, tipo: string, stato: string) {
-    this.id = id;
+  constructor(nome: string, tipo: string, stato: string,id?: number) {
     this.nome = nome;
     this.tipo = tipo;
     this.stato = stato;
