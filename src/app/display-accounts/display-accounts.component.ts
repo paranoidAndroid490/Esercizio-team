@@ -17,9 +17,8 @@ export class DisplayAccountsComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.accountService.accountsListActive.subscribe((accounts:Account[])=>{
-      console.log(accounts)
-    })
+
+
     // this.accountService.accountsListInactive.subscribe((accounts:Account[])=>{
     //   console.log(accounts)
     // })

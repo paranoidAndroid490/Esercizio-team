@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Account } from './shared/account.model';
 import { AccountService } from './shared/account.service';
 
@@ -7,7 +7,7 @@ import { AccountService } from './shared/account.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 
   active: Account[]
   inactive: Account[]
@@ -16,11 +16,20 @@ export class AppComponent {
 
   constructor(private accountService:AccountService){
     this.active = accountService.accountsActive
-    console.log(this.active)
     this.inactive = accountService.accountsInactive
-    console.log(this.inactive)
     this.hidden = accountService.accountsHidden
-    console.log(this.hidden)
+  }
+
+  ngOnInit() {
+    this.accountService.accountsListActive.subscribe((accounts:Account[])=>{
+      this.active = accounts
+    })
+    this.accountService.accountsListInactive.subscribe((accounts:Account[])=>{
+      this.inactive = accounts
+    })
+    this.accountService.accountsListHidden.subscribe((accounts:Account[])=>{
+      this.hidden = accounts
+    })
   }
 
 
